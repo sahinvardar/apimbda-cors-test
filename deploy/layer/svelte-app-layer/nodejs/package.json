@@ -1,0 +1,7 @@
+{
+  "name": "svelte-app-layer",
+  "dependencies": {
+    "@apimda/client": "^0.0.11",
+    "@apimda/core": "^0.0.11"
+  }
+}

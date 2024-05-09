@@ -1,0 +1,22 @@
+{
+  "name": "apimnda-cors",
+  "scripts": {
+    "build": "pnpm --filter backend build && pnpm --filter frontend build",
+    "cdk-deploy": "pnpm build && pnpm --filter deploy cdk-deploy",
+    "cdk-synth": "pnpm build && pnpm --filter deploy cdk-synth"
+  },
+  "devDependencies": {
+    "typescript": "5.2.2"
+  },
+  "pnpm": {
+    "overrides": {
+      "@apimda/client": "^1.0.0",
+      "@apimda/core": "^1.0.0",
+      "@apimda/server": "^1.0.0",
+      "@types/node": "20.8.7",
+      "typescript": "$typescript",
+      "zod": "3.22.4",
+      "tsx": "^4.6.2"
+    }
+  }
+}

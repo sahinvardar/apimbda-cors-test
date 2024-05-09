@@ -1,0 +1,19 @@
+{
+  "name": "shared-domain",
+  "type": "module",
+  "main": "src/index.ts",
+  "module": "src/index.ts",
+  "scripts": {
+    "build": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "types": "src/index.ts",
+  "dependencies": {
+    "@apimda/core": "*",
+    "zod": "*"
+  },
+  "devDependencies": {
+    "shared-tsconfig": "workspace:*",
+    "vitest": "*"
+  }
+}
