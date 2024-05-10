@@ -7,6 +7,7 @@
   let putPromise = Promise.resolve("");
   let patchPromise = Promise.resolve("");
   let awsLambdaPatchPromise = Promise.resolve("");
+  let fixedPatchPromise = Promise.resolve("");
 
   function get() {
     getPromise = api.testService.get({});
@@ -30,6 +31,14 @@
       throw new Error("Failed to fetch");
     }
     awsLambdaPatchPromise = response.text();
+  }
+
+  async function fixedPatch() {
+    const response = await fetch(`${apiUrl}/test`, { method: "PATCH" });
+    if (response.status !== 200) {
+      throw new Error("Failed to fetch");
+    }
+    fixedPatchPromise = response.text();
   }
 </script>
 
@@ -71,6 +80,17 @@
 <div>
   <button on:click={patch}> Patch </button>
   {#await patchPromise}
+    <p>Loading...</p>
+  {:then data}
+    <p>{data}</p>
+  {:catch error}
+    <p>{error.message}</p>
+  {/await}
+</div>
+
+<div>
+  <button on:click={fixedPatch}> Fixed Patch </button>
+  {#await fixedPatchPromise}
     <p>Loading...</p>
   {:then data}
     <p>{data}</p>
