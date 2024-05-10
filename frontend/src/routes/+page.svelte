@@ -25,7 +25,7 @@
   }
 
   async function awsLambdaPatch() {
-    const response = await fetch(apiUrl, { method: "patch" });
+    const response = await fetch(apiUrl, { method: "PATCH" });
     if (response.status !== 200) {
       throw new Error("Failed to fetch");
     }
